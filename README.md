@@ -10,7 +10,7 @@ Native Android · Material 3 · Local-first · No account required
 
 [Download APK](releases/A18-Discipline-OS.apk?raw=true) · [Build the app](docs/DEVELOPMENT.md) · [Architecture](docs/ARCHITECTURE.md) · [Verification](docs/VERIFICATION.md)
 
-<img src="assets/material-banner.svg" width="100%" alt="Material-style A18 banner: Make room for progress. Plan, focus, reflect." />
+<img src="assets/readme/tasks.png" width="100%" alt="Material 3 illustration of task cards with separate start and completion controls" />
 
 </div>
 
@@ -23,6 +23,30 @@ tasks, and record what actually happened. Progress comes from your saved actions
 The interface follows Material Design 3: system light/dark appearance, dynamic
 colors on Android 12+, tonal surfaces, rounded shapes, and native navigation.
 The A18 logo is an original identity inspired by Material geometry.
+
+## A little more room for your day
+
+The artwork below introduces A18's main features. These are **concept illustrations,
+not screenshots**; they contain no personal records or measured productivity data.
+The app follows Android's system appearance and dynamic colors.
+
+<table>
+<tr>
+<td width="50%"><img src="assets/readme/planning.png" width="100%" alt="Material calendar and study-block illustration" /><br /><strong>A plan for every day</strong><br />An editable timetable and four months of predefined tasks.</td>
+<td width="50%"><img src="assets/readme/focus.png" width="100%" alt="Material focus-timer illustration with play and pause controls" /><br /><strong>Make time to focus</strong><br />Custom focus sessions, breaks and task-linked logging.</td>
+</tr>
+<tr>
+<td><img src="assets/readme/learning.png" width="100%" alt="Material illustration of code, Git branches and an open study book" /><br /><strong>Build skills steadily</strong><br />Keep academic revision and coding practice together.</td>
+<td><img src="assets/readme/reminders.png" width="100%" alt="Material illustration of task-start and task-end notification cards" /><br /><strong>A gentle nudge</strong><br />Separate task-start and task-end notifications and sounds.</td>
+</tr>
+<tr>
+<td><img src="assets/readme/local.png" width="100%" alt="Material illustration of a phone, local database and secure lock" /><br /><strong>Your device. Your records.</strong><br />Local storage, optional encrypted backups and no account.</td>
+<td><img src="assets/readme/reflection.png" width="100%" alt="Material journal and weekly-review illustration" /><br /><strong>Reflect. Then reset.</strong><br />Review unfinished work and plan your next step honestly.</td>
+</tr>
+</table>
+
+Eight PNG assets: the original A18 logo and seven matching feature illustrations.
+See [artwork details](docs/README-ASSETS.md).
 
 ## What you can do
 
@@ -103,7 +127,8 @@ The first dependency download needs Internet on the development computer.
 .\gradlew.bat :app:testDebugUnitTest :app:lintDebug :app:assembleDebug
 ```
 
-With an authorized test device connected:
+Use a **disposable emulator with no personal records** for connected tests.
+The default test-runner cleanup uninstalls the app and erases local data:
 
 ```powershell
 .\gradlew.bat :app:connectedDebugAndroidTest
@@ -137,7 +162,7 @@ alerts in deep idle or play one sound for simultaneous transitions.
 
 Use [the 12 manual command batches](docs/MANUAL-PUBLISH.md) to initialize Git,
 review the package, create your own public GitHub repository and push each batch yourself. The final batch also creates a GitHub pre-release with the APK and checksum.
-No remote repository has been created by this preparation.
+The public project is hosted at [mhatreanuj57-alt/A18-Discipline-OS](https://github.com/mhatreanuj57-alt/A18-Discipline-OS).
 
 Project-wide licensing has not been selected. Google Material icon resources
 retain their [Apache 2.0 license](docs/MATERIAL_ICONS_LICENSE.txt). The original
