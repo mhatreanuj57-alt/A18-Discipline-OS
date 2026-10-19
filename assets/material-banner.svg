@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+<title id="title">A18 Discipline OS — Make room for progress</title>
+<desc id="desc">Material-inspired lavender surfaces and a three-step illustration: Plan, Focus, Reflect.</desc>
+<rect x="8" y="8" width="1184" height="384" rx="40" fill="#F7F2FA"/>
+<g font-family="Roboto,Segoe UI,Arial,sans-serif">
+<rect x="48" y="48" width="202" height="40" rx="20" fill="#E8DEF8"/>
+<text x="149" y="74" text-anchor="middle" fill="#4A4458" font-size="15" font-weight="600">A18 DISCIPLINE OS</text>
+<text x="48" y="159" fill="#1D1B20" font-size="53" font-weight="500">Make room</text>
+<text x="48" y="221" fill="#4F378B" font-size="53" font-weight="500">for progress.</text>
+<text x="50" y="268" fill="#49454F" font-size="22">A quieter place to plan, focus and reflect.</text>
+<rect x="48" y="307" width="270" height="44" rx="22" fill="#6750A4"/>
+<text x="183" y="335" text-anchor="middle" fill="#FFFFFF" font-size="17">NATIVE ANDROID · LOCAL FIRST</text>
+<rect x="716" y="48" width="436" height="304" rx="28" fill="#EADDFF"/>
+<g fill="#FFFBFE"><rect x="740" y="72" width="388" height="72" rx="20"/><rect x="740" y="164" width="388" height="72" rx="20"/><rect x="740" y="256" width="388" height="72" rx="20"/></g>
+<g fill="#D0BCFF"><circle cx="781" cy="108" r="19"/><circle cx="781" cy="200" r="19"/><circle cx="781" cy="292" r="19"/></g>
+<path d="M773 108l6 6 11-13" fill="none" stroke="#381E72" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="781" cy="200" r="8" fill="none" stroke="#381E72" stroke-width="3"/>
+<path d="M775 285h13v14h-13z" fill="none" stroke="#381E72" stroke-width="2" stroke-linejoin="round"/>
+<g fill="#1D1B20" font-size="23" font-weight="500"><text x="819" y="116">Plan your day</text><text x="819" y="208">Protect your focus</text><text x="819" y="300">Reflect honestly</text></g>
+</g></svg>
