@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.A18" parent="Theme.A18.Base">
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:navigationBarColor">@color/launcher_background</item>
+        <item name="android:windowSplashScreenBackground">@color/launcher_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/launch_logo</item>
+    </style>
+</resources>
