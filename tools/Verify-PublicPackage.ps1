@@ -10,6 +10,12 @@ $files = @(Get-ChildItem -LiteralPath $root -File -Force -Recurse | Where-Object
 $secretPattern = 'gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{30,}|AKIA[0-9A-Z]{16}|sk-proj-[A-Za-z0-9_-]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'
 foreach ($file in $files) {
     $name = Relative-Name $file
+    if ($name -eq 'local.properties' -and (Test-Path -LiteralPath (Join-Path $root '.git'))) {
+        & git -C $root check-ignore --quiet --no-index -- local.properties
+        $sdkConfigIgnored = $LASTEXITCODE -eq 0
+        $sdkConfigTracked = @(& git -C $root ls-files -- local.properties).Count -gt 0
+        if ($sdkConfigIgnored -and !$sdkConfigTracked) { continue }
+    }
     if ($name -match '(^|/)(local\.properties|signing\.properties|credentials\.json|google-services\.json|\.env(?:\..*)?)$|\.(jks|keystore|p12|pfx|pem|key|db|sqlite|sqlite3)(?:-|$)|(^|/)(databases|shared_prefs|datastore|backups|exports|private-data)/') {
         throw "Private/local file must not be published: $name"
     }

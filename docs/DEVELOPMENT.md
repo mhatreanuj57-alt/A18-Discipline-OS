@@ -15,6 +15,14 @@ Copy-Item app\build\outputs\apk\debug\app-debug.apk A18-Discipline-OS.apk
 
 Gradle 8.11.1, Android Gradle Plugin 8.9.2 and Kotlin 2.1.20 are pinned. Dependency downloads need internet on the development computer; the installed app does not. The optional `.tooling` directory is local build tooling and is ignored by Git.
 
+If Gradle reports **SDK location not found**, configure an existing SDK rather
+than installing a second copy. Create `local.properties` in the project root with
+`sdk.dir=` followed by the absolute SDK directory, using forward slashes on Windows.
+The directory must contain `platforms/android-35/android.jar` and Build Tools 35.0.0.
+This file is machine-specific and ignored by Git. The public-package verifier
+accepts it only when Git confirms it is both ignored and untracked; a tracked or
+unprotected SDK configuration is rejected. Never force-add it.
+
 With a USB-debugging-authorized Android device connected:
 
 ```powershell

@@ -106,4 +106,13 @@ uninstalling or losing the Keystore key can erase local records. Keep manual bac
 Laptop and phone do not synchronize. Forms require Save.
 
 
-Public packaging verification: source and plan bytes match the tested app; the APK checksum is unchanged. Development caches, previous Git history and all device data were excluded. Public docs use portable paths. Git initialization and publishing are manual.
+Public packaging verification: source and plan bytes match the tested app; the APK checksum is unchanged. Development caches, previous Git history and all device data were excluded. Public docs use portable paths. The public repository starts with a separate publishing history.
+
+The public checkout was subsequently compiled directly using the existing local
+SDK and cached Gradle dependencies: `testDebugUnitTest`, `lintDebug` and
+`assembleDebug` all passed, with 13 JVM tests and zero failures. Its SDK location
+is saved only in ignored, untracked `local.properties`. The verifier was checked
+against both protected and temporarily unprotected SDK configurations; only the
+protected configuration is accepted. No machine-specific SDK path is committed.
+The distributed APK remains the previously installed/tested 1.0.6 artifact with
+the SHA-256 recorded above; it was not replaced by the fresh checkout build.
