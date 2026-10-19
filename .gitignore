@@ -1,0 +1,47 @@
+# Build and editor output
+.gradle/
+.kotlin/
+.tooling/
+.idea/
+.vscode/
+.history/
+**/build/
+captures/
+*.log
+*.hprof
+
+# Local SDK paths, credentials and signing material
+local.properties
+signing.properties
+.env
+.env.*
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+credentials.json
+google-services.json
+
+# Device data and manual backups never belong in the repository
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+**/databases/
+**/shared_prefs/
+**/datastore/
+backups/
+exports/
+private-data/
+*backup*.json
+*backup*.json.enc
+
+# Publish only the intentionally included APK
+*.apk
+!/releases/A18-Discipline-OS.apk
+*.aab
+.DS_Store
+Thumbs.db
