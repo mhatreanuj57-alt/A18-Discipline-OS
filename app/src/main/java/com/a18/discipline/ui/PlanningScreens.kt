@@ -10,6 +10,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.a18.discipline.DisciplineViewModel
@@ -47,13 +49,21 @@ import java.time.format.DateTimeFormatter
     }
 }
 @Composable fun TaskCard(task: Task,edit: () -> Unit,status: ((String) -> Unit)?=null) {
+    val now by produceState(ZonedDateTime.now()) {
+        while(true) { value=ZonedDateTime.now(); kotlinx.coroutines.delay(1000) }
+    }
     Card(Modifier.fillMaxWidth(),colors=CardDefaults.cardColors(containerColor=MaterialTheme.colorScheme.surfaceContainerLow)) { Row(Modifier.padding(16.dp)) {
-        if(status!=null) Checkbox(task.status=="Completed",{status(if(it) "Completed" else "Not Started")})
+        if(status!=null) Column(horizontalAlignment=androidx.compose.ui.Alignment.CenterHorizontally) {
+            Checkbox(task.status=="Completed",{status(if(it) "Completed" else "Not Started")},modifier=Modifier.semantics { contentDescription="Complete ${task.title}" })
+            Text("Done",style=MaterialTheme.typography.labelSmall)
+        }
         Column(Modifier.weight(1f).clickable(onClick=edit).padding(4.dp),verticalArrangement=Arrangement.spacedBy(5.dp)) {
             if(task.start.isNotBlank())Text("${task.start}${if(task.end.isBlank()) "" else " – ${task.end}"}",style=MaterialTheme.typography.labelLarge,color=MaterialTheme.colorScheme.primary)
             Text(task.title,style=MaterialTheme.typography.titleMedium)
             Text("${task.due} · ${task.category} · ${task.priority}",style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
-            Text(if(task.archived) "Previous plan · ${task.status}" else task.effectiveStatus(),color=if(task.status=="Completed") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.labelMedium)
+            Text(if(task.archived) "Previous plan · ${task.status}" else task.effectiveStatus(now),color=if(task.status=="Completed") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.labelMedium)
+            task.scheduleLabel(now)?.let { Text(it,style=MaterialTheme.typography.labelMedium,color=MaterialTheme.colorScheme.primary) }
+            if(status!=null && task.canStart(now)) TextButton(onClick={status("In Progress")}) { Text("Start") }
             if(task.subtasks.isNotEmpty()) Text("${task.subtasks.count{it.done}} / ${task.subtasks.size} subtasks",style=MaterialTheme.typography.bodySmall)
         }
         IconButton(onClick=edit){Icon(Icons.Outlined.Edit,"Edit ${task.title}")}

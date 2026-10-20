@@ -1,4 +1,4 @@
-# A18 Discipline OS — native Android
+# Daymark — native Android app (formerly A18 Discipline OS)
 
 Standalone Kotlin / Jetpack Compose / Material 3 app. Version 1.0.4 uses native Material 3 surfaces, typography, dynamic system colors, system light/dark appearance, bottom navigation on phones, a rail on medium screens and a permanent drawer on expanded screens. Rounded Material icons come from the user's local Google icon collection; the license is in `docs/MATERIAL_ICONS_LICENSE.txt`. This native Android project is standalone; it contains no WebView, Capacitor, JavaScript runtime, login, server or internet permission. The separate website is not required to build this package.
 
@@ -45,13 +45,14 @@ In Android Studio select **Build → Generate Signed App Bundle or APK → APK �
 
 ## Daily use
 
+Daymark 1.0.8 renames the app and introduces a new sunrise-and-planner logo. The launcher, startup screen, navigation header, and reminder labels use the new brand. The package ID, local data, and version-1 backup identifier stay compatible.
+
 Version 1.0.6 adds a branded native launch screen and a Material loading screen.
 It opens the **To-do list** on a fresh launch after local initialization completes,
 without an artificial delay. Loading failures offer a retry without clearing data.
 Rotation and returning from the background preserve the current working screen.
 
-Version 1.0.5 refreshes the launcher and navigation logo with an original
-Material-style A18 mark. [Logo source and generation prompt](LOGO.md).
+The original A18 logo is retained for provenance. See [Daymark logo source and generation prompt](LOGO.md).
 
 - The date picker controls the selected day. To-do list includes Today, Tomorrow, Upcoming, Completed, Pending, Overdue and Missed views. Edit a task to set priority, dates, times, reminders, subtasks, notes, repetition, actual minutes, and all supported statuses, including Skipped and Postponed. Change the due date when postponing to reschedule it; history and the original deadline are retained.
 - Use **Command center → Open prebuilt to-do list**, or **menu → Four-month plan**, to see the entire schedule. **Open 19 October** shows the first day's tasks; the date picker opens any other day. Daily To-do list and Calendar remain available.
@@ -83,4 +84,4 @@ Silent mode, Do Not Disturb, muted notification channels and device policies can
 
 ## Tests and technical notes
 
-See [architecture](ARCHITECTURE.md) and [verification](VERIFICATION.md). JVM tests cover task transitions, deadlines, validation, challenge streaks, timer math and encrypted backups. Device tests cover plan idempotence and date coverage, Room reopen persistence, import conflict preservation, timer logging idempotence, encryption/export privacy and recurring tasks. Run `connectedDebugAndroidTest` only against a device you authorize for development testing.
+See [architecture](ARCHITECTURE.md) and [verification](VERIFICATION.md). JVM tests cover task transitions, deadlines, validation, challenge streaks, timer math and encrypted backups. Device tests cover plan idempotence and date coverage, Room reopen persistence, import conflict preservation, timer logging idempotence, encryption/export privacy and recurring tasks. Run `connectedDebugAndroidTest` only on a disposable emulator: the default Android test runner uninstalls the target app afterward and erases local records. Never run it on a phone containing personal data.

@@ -1,6 +1,6 @@
 # README artwork
 
-The README uses eight PNG assets: the existing original A18 logo and seven new
+The README uses eight PNG assets: the original Daymark logo and seven new
 feature illustrations in assets/readme. They are conceptual artwork, not app
 screenshots, actual user records, analytics or evidence of additional app themes.
 

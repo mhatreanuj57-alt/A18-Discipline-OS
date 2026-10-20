@@ -52,6 +52,23 @@ val challengeGoals = listOf("College revision", "Practical coding", "Scheduled p
     val schedules: List<Schedule> = emptyList(), val challenge: List<Challenge> = emptyList(), val settings: Settings? = null,
     val privateLogs: List<PrivateLog>? = null, val journals: List<Journal>? = null, val drafts: List<JsonObject>? = null)
 
+fun Task.scheduleLabel(now: ZonedDateTime = ZonedDateTime.now()): String? {
+    if (start.isBlank() || archived || status in listOf("Completed", "Missed", "Skipped")) return null
+    val beginning = LocalDate.parse(due).atTime(LocalTime.parse(start)).atZone(now.zone)
+    val ending = if (end.isBlank()) beginning.toLocalDate().plusDays(1).atStartOfDay(now.zone)
+        else beginning.toLocalDate().plusDays(if (LocalTime.parse(end) <= LocalTime.parse(start)) 1 else 0)
+            .atTime(LocalTime.parse(end)).atZone(now.zone)
+    return when {
+        !now.isBefore(ending) -> "Scheduled time ended"
+        !now.isBefore(beginning) -> "Scheduled now"
+        else -> null
+    }
+}
+fun Task.canStart(now: ZonedDateTime = ZonedDateTime.now()): Boolean =
+    !archived && status in listOf("Not Started", "Postponed") &&
+        (due > "2026-10-19" || (due == "2026-10-19" && start >= "21:40")) &&
+        due >= now.toLocalDate().toString() && scheduleLabel(now) != "Scheduled time ended"
+
 fun Task.effectiveStatus(now: ZonedDateTime = ZonedDateTime.now()): String {
     if (status in listOf("Completed", "Missed", "Skipped")) return status
     val limit = if (deadline.isBlank()) LocalDate.parse(due).atTime(23, 59, 59).atZone(now.zone)

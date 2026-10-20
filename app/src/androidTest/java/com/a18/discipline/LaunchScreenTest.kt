@@ -14,8 +14,9 @@ class LaunchScreenTest {
     @Test fun loadingFailureOffersRetryInsteadOfEndlessProgress() {
         val error=mutableStateOf<String?>(null);var retries=0
         compose.setContent{A18Theme{LaunchScreen(error.value,{retries++;error.value=null})}}
+        compose.onNodeWithText("Daymark").assertIsDisplayed()
         compose.onNodeWithText("Opening your to-do list…").assertIsDisplayed()
-        compose.onNodeWithContentDescription("A18 logo").assertIsDisplayed()
+        compose.onNodeWithContentDescription("Daymark logo").assertIsDisplayed()
         compose.runOnIdle{error.value="Local records are unavailable."}
         compose.onNodeWithText("Opening your to-do list…").assertDoesNotExist()
         compose.onNodeWithText("Local records are unavailable.").assertIsDisplayed()

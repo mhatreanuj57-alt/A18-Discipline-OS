@@ -92,7 +92,7 @@ object Reminders {
         val manager=context.getSystemService(NotificationManager::class.java)
         val content=PendingIntent.getActivity(context,0,Intent(context,MainActivity::class.java),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         val channel=if(ending)END_CHANNEL else START_CHANNEL
-        val public=NotificationCompat.Builder(context,channel).setSmallIcon(R.drawable.ic_task).setContentTitle("A18 task reminder").setContentText("Open your daily plan.").build()
+        val public=NotificationCompat.Builder(context,channel).setSmallIcon(R.drawable.ic_task).setContentTitle("Daymark reminder").setContentText("Open your daily plan.").build()
         manager.notify(key,0,NotificationCompat.Builder(context,channel).setSmallIcon(R.drawable.ic_task).setContentTitle(title).setContentText(message)
             .setStyle(NotificationCompat.BigTextStyle().bigText(message)).setPriority(NotificationCompat.PRIORITY_HIGH).setCategory(NotificationCompat.CATEGORY_REMINDER)
             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE).setPublicVersion(public).setContentIntent(content).setAutoCancel(true).build())
@@ -120,7 +120,7 @@ class ReminderWorker(context: Context,params: WorkerParameters): CoroutineWorker
         val repo=(applicationContext as DisciplineApp).repository
         if(inputData.getString("taskId")!=null) return Result.success()
         repo.finishTimer()
-        if(repo.settings.first().notifications)Reminders.notify(applicationContext,"focus","A18 focus timer","Your focus interval has ended.")
+        if(repo.settings.first().notifications)Reminders.notify(applicationContext,"focus","Daymark focus timer","Your focus interval has ended.")
         return Result.success()
     }
 }

@@ -114,5 +114,21 @@ SDK and cached Gradle dependencies: `testDebugUnitTest`, `lintDebug` and
 is saved only in ignored, untracked `local.properties`. The verifier was checked
 against both protected and temporarily unprotected SDK configurations; only the
 protected configuration is accepted. No machine-specific SDK path is committed.
-The distributed APK remains the previously installed/tested 1.0.6 artifact with
-the SHA-256 recorded above; it was not replaced by the fresh checkout build.
+The original 1.0.6 debug APK remains attached to its v1.0.6 GitHub pre-release.
+The Daymark 1.0.8 APK and checksum replace the repository's current APK download
+and are published with the v1.0.8 pre-release.
+
+## Daymark 1.0.8 rebrand update — 20 October 2026
+
+Rebrand: launcher, adaptive icon foreground, splash window, Compose launch screen,
+navigation header and task/focus notification titles now use Daymark. The new
+geometric logo is stored in `assets/daymark-logo.png` and Android's
+`drawable-nodpi/daymark_logo.png`. README artwork is illustrative and private-data
+free. No database, encryption key label, backup format, seeded tasks or task history
+was migrated. The application ID remains `com.a18.discipline` so `adb install -r`
+can update the existing installation.
+
+The 1.0.8 public build also includes the task progress Start / Done controls added
+in native source 1.0.7. Validation results are recorded in the release notes. Do not run Android's connected
+instrumentation task on the personal phone: Gradle uninstalls the target application
+after the test run, which clears its locally stored records. Use a disposable emulator.

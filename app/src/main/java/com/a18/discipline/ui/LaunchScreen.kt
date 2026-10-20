@@ -16,12 +16,12 @@ import com.a18.discipline.R
     Surface(Modifier.fillMaxSize(),color=MaterialTheme.colorScheme.surface) {
         Column(Modifier.fillMaxSize().safeDrawingPadding().padding(32.dp),horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.Center) {
             Surface(shape=MaterialTheme.shapes.extraLarge,color=colorResource(R.color.launcher_background)) {
-                Image(painterResource(R.drawable.logo),"A18 logo",Modifier.size(160.dp).padding(16.dp))
+                Image(painterResource(R.drawable.daymark_logo),"Daymark logo",Modifier.size(160.dp).padding(16.dp))
             }
             Spacer(Modifier.height(28.dp))
-            Text("A18 Discipline OS",style=MaterialTheme.typography.headlineSmall,textAlign=TextAlign.Center)
+            Text("Daymark",style=MaterialTheme.typography.headlineSmall,textAlign=TextAlign.Center)
             Spacer(Modifier.height(8.dp))
-            Text("Your day, with intention.",style=MaterialTheme.typography.bodyLarge,color=MaterialTheme.colorScheme.onSurfaceVariant,textAlign=TextAlign.Center)
+            Text("Plan with purpose. End the day with progress.",style=MaterialTheme.typography.bodyLarge,color=MaterialTheme.colorScheme.onSurfaceVariant,textAlign=TextAlign.Center)
             Spacer(Modifier.height(36.dp))
             if(error==null) {
                 CircularProgressIndicator(Modifier.size(28.dp),strokeWidth=3.dp)

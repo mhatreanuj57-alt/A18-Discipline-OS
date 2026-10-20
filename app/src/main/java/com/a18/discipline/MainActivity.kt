@@ -80,7 +80,7 @@ class MainActivity: ComponentActivity() {
     LaunchedEffect(settings.privateEnabled) { if(!settings.privateEnabled && page=="Private space") page="Settings" }
     LaunchedEffect(pages) { if(page !in pages) page="To-do list" }
     val drawerContent: @Composable () -> Unit = {
-        Row(Modifier.padding(24.dp)) { Surface(shape=MaterialTheme.shapes.medium,color=androidx.compose.ui.res.colorResource(R.color.launcher_background)) { Image(painterResource(R.drawable.logo),"A18 logo",Modifier.size(48.dp).padding(4.dp)) }; Spacer(Modifier.width(12.dp)); Column { Text("A18",style=MaterialTheme.typography.titleLarge); Text("Discipline OS",style=MaterialTheme.typography.bodyMedium,color=MaterialTheme.colorScheme.onSurfaceVariant) } }
+        Row(Modifier.padding(24.dp)) { Surface(shape=MaterialTheme.shapes.medium,color=androidx.compose.ui.res.colorResource(R.color.launcher_background)) { Image(painterResource(R.drawable.daymark_logo),"Daymark logo",Modifier.size(48.dp).padding(4.dp)) }; Spacer(Modifier.width(12.dp)); Column { Text("Daymark",style=MaterialTheme.typography.titleLarge); Text("Daily discipline",style=MaterialTheme.typography.bodyMedium,color=MaterialTheme.colorScheme.onSurfaceVariant) } }
         Column(Modifier.verticalScroll(rememberScrollState())) { pages.forEachIndexed { i,p -> NavigationDrawerItem(label={Text(p)},selected=page==p,icon={Icon(icons[i],null)},onClick={page=p;scope.launch{drawer.close()}},modifier=Modifier.padding(horizontal=12.dp,vertical=2.dp)) } }
     }
     val destinations=listOf("Command center","To-do list","Calendar","Focus timer")

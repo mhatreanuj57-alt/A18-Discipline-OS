@@ -1,8 +1,10 @@
 <div align="center">
 
-<img src="assets/a18-logo.png" width="150" alt="A18 logo" />
+<img src="assets/daymark-logo.png" width="150" alt="Daymark logo, a rising sun over a checked planner" />
 
-# A18 Discipline OS
+# Daymark
+
+### A18 Discipline OS
 
 **A personal space for tasks, focus, and honest progress.**
 
@@ -16,17 +18,19 @@ Native Android · Material 3 · Local-first · No account required
 
 ## Start with today
 
-A18 brings your daily to-do list, academic routine, coding practice, focus timer,
+Daymark brings your daily to-do list, academic routine, coding practice, focus timer,
 activity logs, and reflection into one native Android app. Open it, see today's
 tasks, and record what actually happened. Progress comes from your saved actions.
 
 The interface follows Material Design 3: system light/dark appearance, dynamic
 colors on Android 12+, tonal surfaces, rounded shapes, and native navigation.
-The A18 logo is an original identity inspired by Material geometry.
+The Daymark logo pairs a rising sun with an open planner and a completion check.
+Daymark is the new app name for A18 Discipline OS; the existing install identity and
+backup format stay compatible with current devices and exports.
 
 ## A little more room for your day
 
-The artwork below introduces A18's main features. These are **concept illustrations,
+The artwork below introduces Daymark's main features. These are **concept illustrations,
 not screenshots**; they contain no personal records or measured productivity data.
 The app follows Android's system appearance and dynamic colors.
 
@@ -45,7 +49,7 @@ The app follows Android's system appearance and dynamic colors.
 </tr>
 </table>
 
-Eight PNG assets: the original A18 logo and seven matching feature illustrations.
+Eight PNG assets: the new Daymark logo and seven matching feature illustrations.
 See [artwork details](docs/README-ASSETS.md).
 
 ## What you can do
@@ -63,11 +67,11 @@ The optional private space and encrypted journals are excluded from ordinary exp
 
 ## Install
 
-**Current build: 1.0.6 · debug APK · Android 8.0 or newer.**
+**Current build: Daymark 1.0.8 · debug APK · Android 8.0 or newer.**
 
 1. [Download A18-Discipline-OS.apk](releases/A18-Discipline-OS.apk?raw=true).
 2. Open the file on your Android phone and allow installation from your chosen file app.
-3. Launch A18. The branded loading screen opens the **To-do list** when local records are ready.
+3. Launch Daymark. The branded loading screen opens the **To-do list** when local records are ready.
 4. Allow notifications if you want task reminders. Android's **Alarms & reminders**
    access enables precise notification scheduling; the app does not show alarm-clock screens.
 
@@ -145,14 +149,14 @@ Android Keystore · AlarmManager · WorkManager
 
 ```text
 app/                 Native application, bundled plans and automated tests
-assets/              README artwork and original A18 logo
+assets/              README artwork and Daymark logo
 docs/                Build, architecture, verification and publishing guides
 gradle/              Gradle wrapper
 releases/            Installable debug APK and SHA-256 checksum
 tools/               Local public-package verification
 ```
 
-The main application sources and APK match the tested 1.0.6 build. Bundled plan
+The main application sources and APK match the Daymark 1.0.8 build. Bundled plan
 assets are self-contained; building does not require the separate website or Node.js.
 See [verification](docs/VERIFICATION.md) for tested behavior and limits. Notification
 sound respects Silent/DND/channel settings; Android can delay closely spaced
@@ -167,4 +171,4 @@ The public project is hosted at [mhatreanuj57-alt/A18-Discipline-OS](https://git
 Project-wide licensing has not been selected. Google Material icon resources
 retain their [Apache 2.0 license](docs/MATERIAL_ICONS_LICENSE.txt). The original
 logo's generation prompt is documented in [LOGO.md](docs/LOGO.md). Custom audio
-was supplied by the project owner. A18 is not affiliated with Google.
+was supplied by the project owner. Daymark is not affiliated with Google.

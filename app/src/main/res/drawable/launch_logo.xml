@@ -1,1 +1,1 @@
-<inset xmlns:android="http://schemas.android.com/apk/res/android" android:drawable="@drawable/logo" android:inset="20%" />
+<inset xmlns:android="http://schemas.android.com/apk/res/android" android:drawable="@drawable/daymark_logo" android:inset="20%" />
